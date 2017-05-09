@@ -6,6 +6,10 @@ describe DockingStation do
   end
   it "gets a bike and expects the bike to be working" do
     bike = subject.release_bike
-    expect(bike).to respond_to(:working?)
+    expect(bike).to be_working
   end
+  it "docks the bike back to a docking station" do
+    expect(subject).to respond_to(:dock)
+  end
+  
 end
