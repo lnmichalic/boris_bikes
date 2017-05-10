@@ -9,7 +9,11 @@ describe DockingStation do
     expect(bike).to be_working
   end
   it "docks the bike back to a docking station" do
-    expect(subject).to respond_to(:dock)
+    expect(subject).to respond_to(:dock).with(1).argument
   end
-  
+  it "shows last docked bike" do
+    bike = subject.release_bike
+    subject.dock(bike)
+    expect(subject.bike).to eq (bike)
+  end
 end
