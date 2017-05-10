@@ -30,4 +30,8 @@ describe DockingStation do
   it "sets the capacity to the parameter given in new station" do
     expect(DockingStation.new(40).capacity).to eq 40
   end
+  it "lets the user report if bike is broken when docking" do
+    bike = Bike.new
+    expect(subject.dock(bike, false)).to eq "#{bike} is broken"
+  end
 end

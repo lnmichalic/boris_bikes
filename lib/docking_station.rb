@@ -14,9 +14,10 @@ class DockingStation
       @bikes.pop
   end
 
-  def dock(bike)
+  def dock(bike, working = true)
     fail "Docking Station Full" if full?
     @bikes << bike
+    return "#{bike} is broken" if working == false
   end
 
   private
