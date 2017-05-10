@@ -14,7 +14,7 @@ describe DockingStation do
   it "shows last docked bike" do
     bike = Bike.new
     subject.dock(bike)
-    expect(subject.bikes).to eq ([[bike, "working"]])
+    expect(subject.bikes).to eq ([bike])
   end
   it "gives an error when there are no bikes" do
     expect{subject.release_bike}.to raise_error "No bikes available."
@@ -30,13 +30,6 @@ describe DockingStation do
   it "sets the capacity to the parameter given in new station" do
     expect(DockingStation.new(40).capacity).to eq 40
   end
-  it "lets the user report if bike is broken when docking" do
-    bike = Bike.new
-    expect(subject.dock(bike, "broken")).to eq "#{bike} is broken"
-  end
-  it "doesn't release a broken bike" do
-    bike = Bike.new
-    subject.dock(bike,"broken")
-    expect(subject.release_bike).to eq nil
-  end
+
+
 end
