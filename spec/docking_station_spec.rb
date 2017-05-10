@@ -20,7 +20,8 @@ describe DockingStation do
     expect{subject.release_bike}.to raise_error "No bikes available."
   end
   it "gives an error when 20 bikes are docked" do
-    20.times { subject.dock Bike.new}
+    default = DockingStation::DEFAULT_CAPACITY
+    default.times { subject.dock Bike.new}
     bike = Bike.new
     expect {subject.dock(bike)}.to raise_error "Docking Station Full"
   end
